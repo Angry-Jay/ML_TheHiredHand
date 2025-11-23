@@ -23,9 +23,9 @@ Historically, recruiters rely on heuristic filters (e.g., grade cutoffs, special
 Multiple public notebooks use classical algorithms such as Logistic Regression, KNN, SVC, Decision Trees, Random Forests, and ensemble models (e.g., ExtraTrees, XGBoost).
 Most studies show that tree-based ensemble methods outperform simpler baselines, as they capture non-linear relationships and feature interactions.
 - **Common methodology trends:**
-	- Basic EDA (correlations, distributions, imbalance checks)
-	- Preprocessing pipelines (encoding, scaling, imputation)
-	- Model comparison with accuracy, F1, and ROC-AUC
+  - Basic EDA (correlations, distributions, imbalance checks)
+  - Preprocessing pipelines (encoding, scaling, imputation)
+  - Model comparison with accuracy, F1, and ROC-AUC
 
 These works provide useful baselines but leave room for deeper analysis, feature engineering, and structured methodology as required in this project.
 
