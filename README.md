@@ -1,9 +1,43 @@
 # The Hired Hand
 
-## Description of the dataset, its analysis aim and the chosen methodology
+## 1. Project Description
 
-The primary goeal of this project is to build a robust and predictive machine learning model capable of tackling a core binary classification task: predicting whether a graduating studnt will achieve job placement or not ("Placed" vs. "Not Placed"). The motivation, central to the field of Data Science, is to provide actionable intelligence to educational institutions, allowing them to proactively intervene and support at-risk students before graduation. The specific data set used is the well-known Job Placement Dataset from Kaggle, which is categorized as a small/medium-sized tabular dataset appropriate for the classical machine learning focus of the course.
+### 1.1 Project Aim(s)
 
-The chosen methodology strictly adheres to the established End-to-End ML Pipeline, beginning with meticulous Data Discovery and Preparation. The input data is heterogeneous, comprising both numerical features (e.g., academic percentages) and categorical features (e.g., work experience, degree specialization). A crucial initial step will involve handling any missing values, likely through imputation (e.g., replacing with the median for numerical features). Subsequently, all features must be transformed: the categorical variables require OneHotEncoding to convert nominal values into a numerical format readable by ML algorithms, while numerical features must undergo feature scaling, specifically Standardization, to prevent features with larger scales from dominating the training process. The entire sequence of preprocessing steps will be encapsulated within a Scikit-Learn Pipeline for seamless, reproducible application across training and testing sets.
+This project applies Machine Learning techniques to a new, unseen dataset in order to develop a complete analytical and predictive workflow.
+Using the Job Placement Dataset (Kaggle), the goal is to:
+- Predict employment outcomes (Placed vs. Not Placed) using demographic, academic, and professional attributes.
+- Perform full data discovery including cleaning, exploratory analysis, feature understanding, correlation analysis, and data transformation.
+- Build and compare multiple classification models, evaluate performance, and conduct hyperparameter optimization.
+- Interpret and justify the obtained results, identify the most influential employability factors, and propose perspectives for improvement.
+- Apply a coherent and well-reasoned methodology, demonstrating mastery of the course content and good ML practices.
 
-For model development, the project will first establish a baseline using a linear model like Logistic Regression. The project will then explore more sophisticated algorithms from the family of Ensemble Methods, such as the Random Forest Classifier, which is known for its improved performance and robustness against overfitting compared to individual models like Decision Trees. Given the likelihood of a skewed dataset (where one class, such as "Placed," is less frequent than "Not Placed"), the model's performance will be evaluated beyond simple accuracy. Primary performance metrics will include the F1 score and the Area Under the ROC Curve (ROC AUC), as these measures provide a more reliable assessment of the classifier's performance across both classes. Finally, the optimal model will be achieved through hyperparameter tuning, utilizing techniques such as Grid Search or Randomized Search combined with K-fold Cross-Validation to ensure the final solution generalizes reliably to unseen data and minimizes the risk of overfitting.
+---
+
+### 1.2 Existing Solutions (State of the Art)
+
+Several approaches already exist for this dataset, mainly published on Kaggle and GitHub:
+- **Traditional approach (HR manual screening):**
+Historically, recruiters rely on heuristic filters (e.g., grade cutoffs, specialization), which is unscalable, subjective, and often inaccurate.
+- **Standard ML solutions on Kaggle:**
+Multiple public notebooks use classical algorithms such as Logistic Regression, KNN, SVC, Decision Trees, Random Forests, and ensemble models (e.g., ExtraTrees, XGBoost).
+Most studies show that tree-based ensemble methods outperform simpler baselines, as they capture non-linear relationships and feature interactions.
+- **Common methodology trends:**
+	- Basic EDA (correlations, distributions, imbalance checks)
+	- Preprocessing pipelines (encoding, scaling, imputation)
+	- Model comparison with accuracy, F1, and ROC-AUC
+
+These works provide useful baselines but leave room for deeper analysis, feature engineering, and structured methodology as required in this project.
+
+---
+
+### 1.3 Dataset Source
+
+**Dataset Name:** Job Placement Dataset
+
+**Original Source (Kaggle):**
+https://www.kaggle.com/datasets/ahsan81/job-placement-dataset/data
+
+---
+
+### 1.4 GitHub / Dataset Access (Notebook Requirement)
