@@ -7,10 +7,23 @@
 
 ## Table of Contents
 
-- [Project Overview](#project-overview)
+- [Project Structure](#project-structure)
 - [Dataset Information](#dataset-information)
+- [Dataset Features (selected)](#dataset-features-selected)
+- [Project Overview](#project-overview)
 - [Project Objectives](#project-objectives)
 - [Methodology](#methodology)
+- [Quick Start](#quick-start)
+- [Run the notebook locally](#run-the-notebook-locally)
+
+---
+
+## Project Structure
+
+- [ml-the-hired-hand.ipynb](ml-the-hired-hand.ipynb): main notebook with data prep, modeling, and submission steps.
+- [aug_train.csv](aug_train.csv): training data with the `target` label.
+- [aug_test.csv](aug_test.csv): test data without `target`.
+- [sample_submission.csv](sample_submission.csv): required submission format.
 
 ---
 
@@ -70,12 +83,37 @@ This project applies Machine Learning techniques to predict job-change behavior 
 
 ## Methodology
 
-- Load and inspect `aug_train.csv` and `aug_test.csv` with `pandas`.
-- Handle missing values and inconsistent categories.
-- Encode categorical features appropriately (one-hot, ordinal, or target encoding).
-- Address class imbalance (class weights, resampling methods, or threshold tuning).
-- Train baseline models (Logistic Regression, Random Forest, LightGBM) and evaluate on a validation set.
-- Produce a submission file matching `sample_submission.csv` format when predictions on `aug_test.csv` are required.
+1. **Data Loading & Exploration**
+   - Load `aug_train.csv` and `aug_test.csv` with `pandas`.
+   - Inspect shape, data types, missing values, and target distribution.
+   - Perform initial EDA (distributions, correlations, outliers).
+
+2. **Data Cleaning & Preprocessing**
+   - Handle missing values (imputation or removal based on strategy).
+   - Correct inconsistent categories and standardize encoding.
+   - Remove or handle duplicate entries and irrelevant columns.
+
+3. **Feature Engineering & Selection**
+   - Create derived features from raw fields (e.g., binning continuous variables, interaction terms).
+   - Encode categorical variables appropriately (one-hot, ordinal, or target encoding).
+   - Use statistical tests or model-based methods (permutation importance, SHAP) to select relevant features.
+
+4. **Class Imbalance & Validation**
+   - Assess class distribution and apply balancing techniques (class weights, oversampling, undersampling, or SMOTE).
+   - Split data into train/validation sets (stratified) to ensure balanced evaluation.
+   - Use appropriate metrics: AUC-ROC, F1-score, precision, recall (not just accuracy).
+
+5. **Model Training & Evaluation**
+   - Train baseline models: Logistic Regression, Random Forest, LightGBM, XGBoost, or others.
+   - Use cross-validation (k-fold) to assess generalization.
+   - Hyperparameter tuning via grid search or Bayesian optimization.
+   - Compare models on validation metrics (AUC, F1) and select the best performer.
+
+6. **Predictions & Submission**
+   - Apply the best model to `aug_test.csv`.
+   - Generate predicted probabilities and calibrate if needed.
+   - Produce a submission file matching [sample_submission.csv](sample_submission.csv) format.
+   - Ensure consistent preprocessing between train and test data.
 
 ---
 
@@ -94,3 +132,19 @@ python -c "import pandas as pd; df=pd.read_csv('aug_train.csv'); print(df.shape)
 - **Source des données**: arashnic — Kaggle dataset: https://www.kaggle.com/datasets/arashnic/hr-analytics-job-change-of-data-scientists
 
 ---
+
+## Quick Start
+
+- Clone or open this workspace and ensure Python 3.10+ is available.
+- Data files are already included: see [aug_train.csv](aug_train.csv), [aug_test.csv](aug_test.csv), and [sample_submission.csv](sample_submission.csv).
+- The main analysis lives in the notebook [ml-the-hired-hand.ipynb](ml-the-hired-hand.ipynb).
+
+### Run the Notebook Locally
+
+```powershell
+# From the repository root
+code .
+# Open ML_TheHiredHand/ml-the-hired-hand.ipynb and run cells
+```
+
+If you prefer the cloud, use the "Open in Colab" badge at the top of this README.
